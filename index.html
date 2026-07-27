@@ -271,12 +271,10 @@ nav.scrolled{height:54px;box-shadow:0 8px 30px rgba(0,0,0,.35);}
 .cc:nth-child(3n){transform:translateY(-6px);}
 .cc:hover{transform:translateY(-6px) rotate(-1deg)!important;border-color:var(--brd2);box-shadow:0 18px 45px rgba(168,85,247,.16);z-index:2;}
 .ctop{height:130px;position:relative;overflow:hidden;cursor:default;display:flex;align-items:center;justify-content:center;}
-body.admin-mode .ctop{cursor:pointer;}
 .ctop::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% -10%,rgba(255,255,255,.18),transparent 55%);}
 .ctop img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
 .cem{font-size:2.1rem;position:relative;z-index:1;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35));}
 .covr{position:absolute;inset:0;background:rgba(0,0,0,.68);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;opacity:0;transition:opacity .25s;color:#fff;font-size:.78rem;font-weight:600;z-index:5;}
-body.admin-mode .ctop:hover .covr{opacity:1;}
 .cinput{display:none;}
 .cbody{padding:.9rem 1rem 1.1rem;}
 .ciss{font-size:.64rem;font-weight:700;letter-spacing:.08em;color:var(--p2);margin-bottom:.3rem;}
@@ -454,7 +452,7 @@ function downloadCV(){
 <canvas id="cvs"></canvas>
 
 <nav>
-  <div style="display:flex;align-items:center;gap:6px;"><div class="logo">Menna<span>.M</span></div><button onclick="showAdminLogin('adminPanel')" title="Admin" style="background:none;border:none;cursor:pointer;font-size:1.1rem;opacity:0.2;padding:2px;line-height:1;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.2'">⚙️</button></div>
+  <div class="logo">Menna<span>.M</span></div>
   <div class="navlinks">
     <button class="nl" onclick="goTo('home')">Home</button>
     <button class="nl" onclick="goTo('about')">About</button>
@@ -708,52 +706,6 @@ function downloadCV(){
 <footer>© 2026 Mennatullah Mohammed · Built with passion for data engineering.</footer>
 
 
-<div class="mbg" id="pmodal" onclick="closePOut(event)">
-  <div class="mdl">
-    <h3>➕ Add New Project</h3>
-    <div class="fld"><label>Project Name *</label><input id="pnm" placeholder="e.g. Cairo Weather ETL"/></div>
-    <div class="fld"><label>Category *</label><select id="pcat"><option value="de">Data Engineering</option><option value="da">Data Analysis</option></select></div>
-    <div class="fld"><label>Description *</label><textarea id="pds" placeholder="What does this project do?"></textarea></div>
-    <div class="fld"><label>Tools (comma separated) *</label><input id="ptl" placeholder="Python, Airflow, Azure"/></div>
-    <div class="mrow">
-      <div class="fld"><label>Color</label><select id="pcol"><option value="gg">Purple</option><option value="gc">Cyan</option><option value="ggn">Green</option><option value="gog">Orange</option><option value="gpk">Pink</option><option value="gbl">Blue</option><option value="gtl">Teal</option><option value="grd">Red</option></select></div>
-      <div class="fld"><label>Emoji</label><input id="pem" placeholder="📊"/></div>
-    </div>
-    <div class="mrow">
-      <div class="fld"><label>GitHub Link</label><input id="pgh" type="url" placeholder="https://github.com/..."/></div>
-      <div class="fld"><label>Demo / Power BI Link</label><input id="pbi" type="url" placeholder="https://..."/></div>
-    </div>
-    <div class="mrow">
-      <div class="fld"><label>Tableau Link</label><input id="ptab" type="url" placeholder="https://public.tableau.com/..."/></div>
-      <div class="fld"><label>Other Label</label><input id="pol" placeholder="Live Demo"/></div>
-    </div>
-    <div class="fld"><label>Other URL</label><input id="pou" type="url" placeholder="https://..."/></div>
-    <div class="fld"><label>Upload Project Image (optional)</label><input type="file" id="pimgf" accept="image/*" style="background:transparent;border:1px solid var(--brd);border-radius:8px;color:var(--t2);padding:.5rem;font-size:.8rem;cursor:pointer;"/></div>
-    <div class="macts">
-      <button class="mcan" onclick="closePModal()">Cancel</button>
-      <button class="msav" onclick="saveP()">Save Project</button>
-    </div>
-  </div>
-</div>
-
-
-<div class="mbg" id="cmodal" onclick="closeCOut(event)">
-  <div class="mdl">
-    <h3>🏅 Add New Certificate</h3>
-    <div class="fld"><label>Certificate Name *</label><input id="cnm2" placeholder="e.g. Python for Data Science"/></div>
-    <div class="fld"><label>Issuer *</label><input id="ciss2" placeholder="e.g. IBM · COURSERA"/></div>
-    <div class="fld"><label>Description</label><textarea id="cds2" placeholder="What did you learn?"></textarea></div>
-    <div class="mrow">
-      <div class="fld"><label>Color</label><select id="ccol"><option value="linear-gradient(135deg,#1e3a8a,#2563eb)">Blue</option><option value="linear-gradient(135deg,#4c1d95,#7c3aed)">Purple</option><option value="linear-gradient(135deg,#14532d,#16a34a)">Green</option><option value="linear-gradient(135deg,#831843,#be185d)">Pink</option><option value="linear-gradient(135deg,#7c2d12,#ea580c)">Orange</option><option value="linear-gradient(135deg,#134e4a,#0f766e)">Teal</option><option value="linear-gradient(135deg,#422006,#d97706)">Amber</option><option value="linear-gradient(135deg,#1e1b4b,#4338ca)">Indigo</option></select></div>
-      <div class="fld"><label>Upload Image (optional)</label><input type="file" id="cimg2" accept="image/*" style="background:transparent;border:1px solid var(--brd);border-radius:8px;color:var(--t2);padding:.5rem;font-size:.8rem;cursor:pointer;"/></div>
-    </div>
-    <div class="macts">
-      <button class="mcan" onclick="closeCModal()">Cancel</button>
-      <button class="msav" onclick="saveC()">Save Certificate</button>
-    </div>
-  </div>
-</div>
-
 <script>
 // ── PARTICLES ──
 
@@ -993,54 +945,69 @@ const roles=['Data Engineer','ETL Architect','Cloud Engineer','Analytics Special
 let ri=0,ci=0,del=false;
 (function type(){const el=document.getElementById('typed');if(!el)return;const w=roles[ri];if(!del){el.textContent=w.slice(0,++ci);if(ci===w.length){del=true;setTimeout(type,1900);return;}}else{el.textContent=w.slice(0,--ci);if(ci===0){del=false;ri=(ri+1)%roles.length;}}setTimeout(type,del?55:85);})();
 
-// ── PROJECTS ──
-const PK='menna_pv6';
-const BI=[];
-function getU(){try{return JSON.parse(localStorage.getItem('menna_pv6'))||[];}catch(e){return[];}}
-function getAll(){return[...BI];}
+// ── PROJECTS (live from GitHub) ──
+const GH_USER='Menna-Rady';
+const GH_SKIP=['portfolio','menna-rady','menna-rady.github.io'];
+let ghProjects=[];
 let curF='all';
 function filterP(f,btn){curF=f;document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderP();}
+
+const COLS=['gg','gc','ggn','gog','gpk','gbl','gtl','grd'];
+const EMOJIS={python:'🐍',jupyter:'📓',javascript:'🟨',typescript:'🔷',html:'🌐',css:'🎨',sql:'🗄️',java:'☕',default:'📊'};
+
+async function loadGitHubProjects(){
+  try{
+    const res=await fetch(`https://api.github.com/users/${GH_USER}/repos?sort=updated&per_page=100`);
+    if(!res.ok) throw new Error('gh api error');
+    const repos=await res.json();
+    ghProjects=repos
+      .filter(r=>!r.fork && !GH_SKIP.includes(r.name.toLowerCase()))
+      .map((r,i)=>{
+        const topics=r.topics||[];
+        let cat='de';
+        if(topics.includes('data-analysis')||topics.includes('data-analytics')) cat='da';
+        else if(topics.includes('data-engineering')) cat='de';
+        else if((r.language||'').toLowerCase()==='jupyter notebook') cat='da';
+        const lang=(r.language||'').toLowerCase();
+        return{
+          nm:r.name.replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase()),
+          cat,
+          ds:r.description||'A project on GitHub — check it out for more details.',
+          tools:[...(r.language?[r.language]:[]),...topics].slice(0,5),
+          col:COLS[i%COLS.length],
+          em:EMOJIS[lang]||EMOJIS.default,
+          gh:r.html_url,
+          ou:r.homepage||'',
+          ol:'Live Demo'
+        };
+      });
+    renderP();
+  }catch(e){
+    document.getElementById('pgrid').innerHTML='<p style="color:var(--t3);grid-column:1/-1;text-align:center;padding:2rem;">Couldn\'t load projects from GitHub right now. <a href="https://github.com/'+GH_USER+'" target="_blank" style="color:var(--purple);">View on GitHub ↗</a></p>';
+  }
+}
+
 function renderP(){
   const grid=document.getElementById('pgrid');
-  const all=getAll();
-  const shown=curF==='all'?all:all.filter(p=>p.cat===curF);
+  const shown=curF==='all'?ghProjects:ghProjects.filter(p=>p.cat===curF);
+  if(!ghProjects.length){grid.innerHTML='<p style="color:var(--t3);grid-column:1/-1;text-align:center;padding:2rem;">Loading projects…</p>';return;}
   let h='';
   shown.forEach(p=>{
-    const gi=all.indexOf(p);const canDel=false;
     const tags=(p.tools||[]).map(t=>`<span class="ptag">${esc(t)}</span>`).join('');
-    const hasImg=p.img&&p.img.length>20;
-    const imgSrc=hasImg?`data:image/${p.imt||'png'};base64,${p.img}`:'';
     const ghLink=p.gh?`<a href="${esc(p.gh)}" target="_blank" class="plink plgh">🐙 GitHub</a>`:'';
-    let demo='';
-    if(p.bi)demo=`<a href="${esc(p.bi)}" target="_blank" class="plink pldemo">📊 Power BI</a>`;
-    else if(p.tab)demo=`<a href="${esc(p.tab)}" target="_blank" class="plink pldemo">📈 Tableau</a>`;
-    else if(p.ou)demo=`<a href="${esc(p.ou)}" target="_blank" class="plink pldemo">🔗 ${esc(p.ol||'Demo')}</a>`;
+    const demo=p.ou?`<a href="${esc(p.ou)}" target="_blank" class="plink pldemo">🔗 ${esc(p.ol||'Demo')}</a>`:'';
     h+=`<div class="pc">
-      <div class="pimg ${hasImg?'':p.col||'gg'}">
-        ${hasImg?`<img src="${imgSrc}" alt="${esc(p.nm)}"/><div class="pimg-grad"></div>`:`<div class="pimg-emoji">${p.em||'📊'}</div>`}
+      <div class="pimg ${p.col||'gg'}">
+        <div class="pimg-emoji">${p.em||'📊'}</div>
         <div class="phovr">${ghLink}${demo}</div>
-        ${canDel?`<button onclick="delP(${gi-BI.length})" style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,.6);border:none;color:#fff;width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:13px;z-index:10;">×</button>`:''}
       </div>
       <div class="pbody"><div class="pnm">${esc(p.nm)}</div><div class="pds">${esc(p.ds)}</div><div class="ptags">${tags}</div></div>
     </div>`;
   });
-  if(_adminLoggedIn){h+='<div class="addcard rv" onclick="openPModal()"><div style="font-size:2rem">+</div><div style="font-weight:700;font-size:.9rem">Add New Project</div><div style="font-size:.78rem;margin-top:.2rem">Click to add</div></div>';}grid.innerHTML=h;
-}
-function delP(i){if(!confirm('Remove?'))return;const a=getU();a.splice(i,1);localStorage.setItem(PK,JSON.stringify(a));renderP();}
-function openPModal(){document.getElementById('pmodal').classList.add('open');}
-function closePModal(){document.getElementById('pmodal').classList.remove('open');['pnm','pds','ptl','pgh','pbi','ptab','pol','pou','pem'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});document.getElementById('pcol').value='gg';document.getElementById('pcat').value='de';}
-function closePOut(e){if(e.target===document.getElementById('pmodal'))closePModal();}
-function saveP(){
-  const nm=document.getElementById('pnm').value.trim(),ds=document.getElementById('pds').value.trim(),tl=document.getElementById('ptl').value.trim();
-  if(!nm||!ds||!tl){alert('Fill in name, description and tools.');return;}
-  const p={nm,cat:document.getElementById('pcat').value,ds,tools:tl.split(',').map(t=>t.trim()).filter(Boolean),col:document.getElementById('pcol').value,em:document.getElementById('pem').value.trim()||'📊',gh:document.getElementById('pgh').value.trim(),bi:document.getElementById('pbi').value.trim(),tab:document.getElementById('ptab').value.trim(),ol:document.getElementById('pol').value.trim(),ou:document.getElementById('pou').value.trim(),img:'',imt:'png'};
-  const imgF=document.getElementById('pimgf').files[0];
-  const save=()=>{const a=getU();a.unshift(p);localStorage.setItem(PK,JSON.stringify(a));renderP();closePModal();};
-  if(imgF){const r=new FileReader();r.onload=ev=>{p.img=ev.target.result.split(',')[1];p.imt=imgF.type.split('/')[1]||'png';save();};r.readAsDataURL(imgF);}else save();
+  grid.innerHTML=h;
 }
 
 // ── CERTIFICATES ──
-const CK='menna_cv6';
 const BC=[
   {col:'linear-gradient(135deg,#1e3a5f,#2563eb)',em:'🏆',iss:'GOOGLE · COURSERA',nm:'Google Data Analytics Professional Certificate',ds:'Full data lifecycle, SQL, Python, Tableau and data-driven decision making.',key:'c0'},
   {col:'linear-gradient(135deg,#1a1a35,#7c3aed)',em:'🏆',iss:'IBM · COURSERA',nm:'IBM Advanced Data Science',ds:'Advanced ML, data pipelines and scalable AI model deployment.',key:'c1'},
@@ -1051,433 +1018,23 @@ const BC=[
   {col:'linear-gradient(135deg,#422006,#d97706)',em:'🏆',iss:'GOOGLE · META',nm:'Digital Marketing Professional Certificates',ds:'Google & Meta certifications in digital marketing and analytics.',key:'c6'},
   {col:'linear-gradient(135deg,#1e1b4b,#4338ca)',em:'🏆',iss:'ITIDA · EYOUTH',nm:'Freelancing Training',ds:'Professional freelancing, remote work strategies — 120hrs.',key:'c7'},
 ];
-function getUC(){try{return JSON.parse(localStorage.getItem(CK))||[];}catch(e){return[];}}
-function getAllC(){return[...BC,...getUC()];}
-function loadCI(key){try{return localStorage.getItem('ci_'+key)||null;}catch(e){return null;}}
-function saveCI(key,data){try{localStorage.setItem('ci_'+key,data);}catch(e){alert('Image too large. Try a smaller file.');}}
 function renderC(){
   const grid=document.getElementById('cgrid2');
-  const all=getAllC();
-  let h=all.map((c,i)=>{
-    const img=loadCI(c.key);const isUser=i>=BC.length;
+  let h=BC.map(c=>{
     return`<div class="cc rv">
-      <div class="ctop" style="${img?'':'background:'+c.col}" onclick="trigCI('${c.key}')">
-        ${img?`<img src="${img}" alt="${c.nm}"/>`:`<span class="cem">${c.em||'🏆'}</span>`}
-        <div class="covr">📷<span>Click to upload image</span></div>
-        <input type="file" class="cinput" id="ci_${c.key}" accept="image/*" onchange="onCI(event,'${c.key}')"/>
+      <div class="ctop" style="background:${c.col}">
+        <span class="cem">${c.em||'🏆'}</span>
       </div>
       <div class="cbody"><div class="ciss">🏅 ${c.iss}</div><div class="cnm">${c.nm}</div><div class="cds">${c.ds}</div></div>
-      ${isUser?`<button onclick="delC(${i-BC.length})" style="margin:.5rem 1rem 1rem;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#f87171;padding:.35rem .75rem;border-radius:8px;cursor:pointer;font-size:.75rem;font-family:Inter,sans-serif;">Remove</button>`:''}
     </div>`;
   }).join('');
   grid.innerHTML=h;
-  document.querySelectorAll('.cc.rv,.addcert.rv').forEach(el=>obs.observe(el));
-}
-function trigCI(key){if(_adminLoggedIn)document.getElementById('ci_'+key).click();}
-function onCI(e,key){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{saveCI(key,ev.target.result);renderC();};r.readAsDataURL(f);}
-function delC(i){if(!confirm('Remove?'))return;const a=getUC();a.splice(i,1);localStorage.setItem(CK,JSON.stringify(a));renderC();}
-function openCModal(){document.getElementById('cmodal').classList.add('open');}
-function closeCModal(){document.getElementById('cmodal').classList.remove('open');['cnm2','ciss2','cds2'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});}
-function closeCOut(e){if(e.target===document.getElementById('cmodal'))closeCModal();}
-function saveC(){
-  const nm=document.getElementById('cnm2').value.trim(),iss=document.getElementById('ciss2').value.trim();
-  if(!nm||!iss){alert('Fill in name and issuer.');return;}
-  const key='uc_'+Date.now();
-  const c={col:document.getElementById('ccol').value,em:'🏆',iss,nm,ds:document.getElementById('cds2').value.trim(),key};
-  const imgF=document.getElementById('cimg2').files[0];
-  const save=()=>{const a=getUC();a.push(c);localStorage.setItem(CK,JSON.stringify(a));renderC();closeCModal();};
-  if(imgF){const r=new FileReader();r.onload=ev=>{saveCI(key,ev.target.result);save();};r.readAsDataURL(imgF);}else save();
+  document.querySelectorAll('.cc.rv').forEach(el=>obs.observe(el));
 }
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
-var _adminLoggedIn=false;
-renderP();renderC();
+loadGitHubProjects();renderC();
 </script>
 
-<!-- ADMIN LOGIN MODAL -->
-<div class="mbg" id="adminModal" onclick="closeAdminOut(event)">
-  <div class="mdl" style="max-width:380px;text-align:center;">
-    <div style="font-size:3rem;margin-bottom:1rem;">🔐</div>
-    <h3 style="font-size:1.3rem;margin-bottom:.5rem;">Admin Access</h3>
-    <p style="color:var(--t2);font-size:.85rem;margin-bottom:1.5rem;">Sign in with your email & passcode to continue</p>
-    <div class="fld" style="margin-bottom:.7rem;">
-      <input type="email" id="adminPw" placeholder="you@email.com" onkeydown="if(event.key==='Enter')document.getElementById('adminCode').focus()" style="text-align:center;font-size:1rem;"/>
-    </div>
-    <div class="fld">
-      <input type="password" id="adminCode" placeholder="Secret passcode" onkeydown="if(event.key==='Enter')checkAdmin()" style="text-align:center;font-size:1rem;letter-spacing:.15em;"/>
-    </div>
-    <div id="adminErr" style="color:#f87171;font-size:.8rem;margin:.75rem 0;display:none;">❌ Email or passcode is incorrect.</div>
-    <div class="macts" style="justify-content:center;gap:1rem;">
-      <button class="mcan" onclick="closeAdminModal()">Cancel</button>
-      <button class="msav" onclick="checkAdmin()">Enter ✨</button>
-    </div>
-  </div>
-</div>
-
-<!-- WELCOME TOAST -->
-<div id="adminToast" style="position:fixed;top:90px;right:24px;z-index:9500;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;padding:.9rem 1.4rem;border-radius:12px;font-family:Inter,sans-serif;font-size:.9rem;font-weight:600;box-shadow:0 10px 30px rgba(168,85,247,.45);opacity:0;transform:translateY(-12px);transition:opacity .35s,transform .35s;pointer-events:none;">👋 Hi Menna, welcome back!</div>
-
-<script>
-let _adminTarget='',_adminKey='';
-const ADMIN_EMAIL='manonmohamed900@gmail.com';
-const ADMIN_CODE='Menna#Earnest26';
-function showAdminLogin(target,key){
-  if(key===undefined)key='';
-  _adminTarget=target;_adminKey=key;
-  document.getElementById('adminModal').classList.add('open');
-  document.getElementById('adminPw').value='';
-  document.getElementById('adminCode').value='';
-  document.getElementById('adminErr').style.display='none';
-  setTimeout(()=>document.getElementById('adminPw').focus(),100);
-}
-function showAdminToast(){
-  const t=document.getElementById('adminToast');
-  if(!t) return;
-  t.style.opacity='1';t.style.transform='translateY(0)';
-  setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(-12px)';},3200);
-}
-function checkAdmin(){
-  const email=document.getElementById('adminPw').value.trim().toLowerCase();
-  const code=document.getElementById('adminCode').value;
-  if(email===ADMIN_EMAIL && code===ADMIN_CODE){
-    _adminLoggedIn=true;
-    document.body.classList.add('admin-mode');
-    document.getElementById('adminModal').classList.remove('open');
-    showAdminToast();
-    if(_adminTarget==='ci'){
-      document.getElementById('ci_'+_adminKey).click();
-    } else if(_adminTarget==='adminPanel'){
-      document.getElementById('AP').style.display='flex';
-      if(typeof APloadHome==='function') APloadHome();
-    } else if(_adminTarget){
-      document.getElementById(_adminTarget).classList.add('open');
-    }
-    renderP(); renderC();
-    var fb=document.getElementById('adminFloatBtn');
-    if(fb) fb.style.display='flex';
-  } else {
-    document.getElementById('adminErr').style.display='block';
-    document.getElementById('adminPw').value='';
-    document.getElementById('adminCode').value='';
-    document.getElementById('adminPw').focus();
-    document.getElementById('adminPw').style.borderColor='#ef4444';
-    document.getElementById('adminCode').style.borderColor='#ef4444';
-    setTimeout(()=>{document.getElementById('adminPw').style.borderColor='';document.getElementById('adminCode').style.borderColor='';},1000);
-  }
-}
-function closeAdminModal(){document.getElementById('adminModal').classList.remove('open');}
-function closeAdminOut(e){if(e.target===document.getElementById('adminModal'))closeAdminModal();}
-</script>
-
-
-<!-- ADMIN FLOAT BTN -->
-<button id="adminFloatBtn" onclick="showAdminLogin('adminPanel')" style="display:none;position:fixed;bottom:24px;right:24px;z-index:9000;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a855f7);border:none;cursor:pointer;font-size:1.5rem;box-shadow:0 4px 20px rgba(168,85,247,.5);align-items:center;justify-content:center;">⚙️</button>
-
-<!-- ADMIN NAV BUTTON -->
-<style>
-#apNavBtn{background:none;border:1px solid rgba(168,85,247,.3);color:rgba(168,85,247,.6);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:.8rem;margin-left:.3rem;vertical-align:middle;}
-#apNavBtn:hover{border-color:#a855f7;color:#a855f7;}
-</style>
-
-<!-- ADMIN PANEL -->
-<div id="AP" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;justify-content:center;align-items:flex-start;overflow-y:auto;padding:16px;">
-<div style="background:#0d0d20;border:1px solid #7c3aed;border-radius:16px;width:100%;max-width:800px;padding:24px;margin:auto;">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
-    <div style="font-family:Poppins,sans-serif;font-size:20px;font-weight:800;background:linear-gradient(135deg,#a855f7,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">⚙️ Admin Panel</div>
-    <button id="AP-close" onclick="document.getElementById('AP').style.display='none'" style="background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.4);color:#f87171;padding:6px 14px;border-radius:8px;cursor:pointer;font-family:Inter,sans-serif;font-size:13px;">✕ Close</button>
-  </div>
-  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(124,58,237,.2);align-items:center;">
-    <button class="APT" id="APT-home"    style="padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;font-family:Inter,sans-serif;background:rgba(168,85,247,.15);border:1px solid #a855f7;color:#c084fc;">🏠 Home</button>
-    <button class="APT" id="APT-about"   style="padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;font-family:Inter,sans-serif;background:none;border:1px solid rgba(124,58,237,.25);color:#b0b0d0;">👤 About</button>
-    <button class="APT" id="APT-skills"  style="padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;font-family:Inter,sans-serif;background:none;border:1px solid rgba(124,58,237,.25);color:#b0b0d0;">🛠️ Skills</button>
-    <button class="APT" id="APT-exp"     style="padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;font-family:Inter,sans-serif;background:none;border:1px solid rgba(124,58,237,.25);color:#b0b0d0;">💼 Experience</button>
-    <button class="APT" id="APT-edu"     style="padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;font-family:Inter,sans-serif;background:none;border:1px solid rgba(124,58,237,.25);color:#b0b0d0;">🎓 Education</button>
-    <button class="APT" id="APT-proj"    style="padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;font-family:Inter,sans-serif;background:none;border:1px solid rgba(124,58,237,.25);color:#b0b0d0;">📁 Projects</button>
-    <button class="APT" id="APT-certs"   style="padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;font-family:Inter,sans-serif;background:none;border:1px solid rgba(124,58,237,.25);color:#b0b0d0;">🏅 Certificates</button>
-    <button class="APT" id="APT-contact" style="padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;font-family:Inter,sans-serif;background:none;border:1px solid rgba(124,58,237,.25);color:#b0b0d0;">📞 Contact</button>
-  </div>
-  <div id="APS-home">
-    <p style="color:#a855f7;font-weight:700;margin:0 0 12px;">🏠 Home</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
-      <div><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">First Name</label><input id="h-fname" placeholder="Mennatullah" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;"></div>
-      <div><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">Last Name</label><input id="h-lname" placeholder="Mohammed" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;"></div>
-    </div>
-    <div style="margin-bottom:10px;"><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">Typed Roles (comma separated)</label><input id="h-roles" placeholder="Data Engineer,ETL Architect" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;"></div>
-    <div style="margin-bottom:10px;"><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">Description</label><textarea id="h-desc" rows="3" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;resize:vertical;"></textarea></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;">
-      <div><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">Stat 1 #</label><input id="h-s1n" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px;font-family:Inter,sans-serif;font-size:13px;box-sizing:border-box;margin-bottom:4px;"><input id="h-s1l" placeholder="Label" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px;font-family:Inter,sans-serif;font-size:13px;box-sizing:border-box;"></div>
-      <div><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">Stat 2 #</label><input id="h-s2n" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px;font-family:Inter,sans-serif;font-size:13px;box-sizing:border-box;margin-bottom:4px;"><input id="h-s2l" placeholder="Label" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px;font-family:Inter,sans-serif;font-size:13px;box-sizing:border-box;"></div>
-      <div><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">Stat 3 #</label><input id="h-s3n" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px;font-family:Inter,sans-serif;font-size:13px;box-sizing:border-box;margin-bottom:4px;"><input id="h-s3l" placeholder="Label" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px;font-family:Inter,sans-serif;font-size:13px;box-sizing:border-box;"></div>
-    </div>
-    <button class="APS-btn" id="btn-saveHome" onclick="APsaveHome()" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;font-family:Inter,sans-serif;">Save Home</button>
-  </div>
-  <div id="APS-about" style="display:none;">
-    <p style="color:#a855f7;font-weight:700;margin:0 0 12px;">👤 About</p>
-    <div style="margin-bottom:10px;"><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">Paragraph 1</label><textarea id="ab-p1" rows="3" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;resize:vertical;"></textarea></div>
-    <div style="margin-bottom:10px;"><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">Paragraph 2</label><textarea id="ab-p2" rows="3" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;resize:vertical;"></textarea></div>
-    <div style="margin-bottom:16px;"><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">Paragraph 3</label><textarea id="ab-p3" rows="3" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;resize:vertical;"></textarea></div>
-    <button class="APS-btn" id="btn-saveAbout" onclick="APsaveAbout()" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;font-family:Inter,sans-serif;">Save About</button>
-  </div>
-  <div id="APS-skills" style="display:none;">
-    <p style="color:#a855f7;font-weight:700;margin:0 0 12px;">🛠️ Skills</p>
-    <div id="skills-list" style="margin-bottom:10px;"></div>
-    <button class="APS-btn" id="btn-addSkill" onclick="APaddSkill()" style="background:rgba(168,85,247,.1);border:1px dashed #a855f7;color:#a855f7;padding:7px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;font-family:Inter,sans-serif;margin-bottom:16px;">+ Add Skill</button>
-    <br><button class="APS-btn" id="btn-saveSkills" onclick="APsaveSkills()" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;font-family:Inter,sans-serif;">Save Skills</button>
-  </div>
-  <div id="APS-exp" style="display:none;">
-    <p style="color:#a855f7;font-weight:700;margin:0 0 12px;">💼 Experience</p>
-    <div id="exp-list" style="margin-bottom:10px;"></div>
-    <button class="APS-btn" id="btn-addExp" onclick="APaddExp()" style="background:rgba(168,85,247,.1);border:1px dashed #a855f7;color:#a855f7;padding:7px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;font-family:Inter,sans-serif;margin-bottom:16px;">+ Add Experience</button>
-    <br><button class="APS-btn" id="btn-saveExp" onclick="APsaveExp()" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;font-family:Inter,sans-serif;">Save Experience</button>
-  </div>
-  <div id="APS-edu" style="display:none;">
-    <p style="color:#a855f7;font-weight:700;margin:0 0 12px;">🎓 Education</p>
-    <div style="margin-bottom:10px;"><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">Degree</label><input id="edu-deg" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;"></div>
-    <div style="margin-bottom:10px;"><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">University</label><input id="edu-uni" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;"></div>
-    <div style="margin-bottom:16px;"><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">Courses (one per line)</label><textarea id="edu-courses" rows="5" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;resize:vertical;"></textarea></div>
-    <button class="APS-btn" id="btn-saveEdu" onclick="APsaveEdu()" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;font-family:Inter,sans-serif;">Save Education</button>
-  </div>
-  <div id="APS-proj" style="display:none;">
-    <p style="color:#a855f7;font-weight:700;margin:0 0 12px;">📁 Projects</p>
-    <div id="ap-proj-list2" style="margin-bottom:12px;"></div>
-    <button class="APS-btn" id="btn-addProj" onclick="document.getElementById('AP').style.display='none';openPModal()" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;font-family:Inter,sans-serif;">+ Add Project</button>
-  </div>
-  <div id="APS-certs" style="display:none;">
-    <p style="color:#a855f7;font-weight:700;margin:0 0 12px;">🏅 Certificates</p>
-    <div id="ap-cert-list2" style="margin-bottom:12px;"></div>
-    <button class="APS-btn" id="btn-addCert" onclick="document.getElementById('AP').style.display='none';openCModal()" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;font-family:Inter,sans-serif;">+ Add Certificate</button>
-  </div>
-  <div id="APS-contact" style="display:none;">
-    <p style="color:#a855f7;font-weight:700;margin:0 0 12px;">📞 Contact</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
-      <div><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">WhatsApp Number</label><input id="ct-phone" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;"></div>
-      <div><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">Email</label><input id="ct-email" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;"></div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
-      <div><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">LinkedIn URL</label><input id="ct-li" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;"></div>
-      <div><label style="color:#b0b0d0;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:4px;">GitHub URL</label><input id="ct-gh" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:8px 12px;font-family:Inter,sans-serif;font-size:14px;box-sizing:border-box;"></div>
-    </div>
-    <button class="APS-btn" id="btn-saveContact" onclick="APsaveContact()" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;font-family:Inter,sans-serif;">Save Contact</button>
-  </div>
-</div>
-</div>
-
-<script>
-var _AP_TABS = ['home','about','skills','exp','edu','proj','certs','contact'];
-
-function APshow(id) {
-  _AP_TABS.forEach(function(s) {
-    var sec = document.getElementById('APS-' + s);
-    var btn = document.getElementById('APT-' + s);
-    if (sec) sec.style.display = 'none';
-    if (btn) { btn.style.background = 'none'; btn.style.borderColor = 'rgba(124,58,237,.25)'; btn.style.color = '#b0b0d0'; }
-  });
-  var sec = document.getElementById('APS-' + id);
-  var btn = document.getElementById('APT-' + id);
-  if (sec) sec.style.display = 'block';
-  if (btn) { btn.style.background = 'rgba(168,85,247,.15)'; btn.style.borderColor = '#a855f7'; btn.style.color = '#c084fc'; }
-  var loaders = { home: APloadHome, about: APloadAbout, skills: APloadSkills, exp: APloadExp, edu: APloadEdu, contact: APloadContact, proj: APloadProj, certs: APloadCerts };
-  if (loaders[id]) loaders[id]();
-}
-
-function Aget(k) { try { return JSON.parse(localStorage.getItem('ap_' + k)); } catch(e) { return null; } }
-function Aset(k, v) { localStorage.setItem('ap_' + k, JSON.stringify(v)); }
-function Ag(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
-function Af(id, val) { var el = document.getElementById(id); if (el) el.value = val || ''; }
-
-function APloadHome() {
-  var d = Aget('home') || {};
-  Af('h-fname', d.fname || 'Mennatullah'); Af('h-lname', d.lname || 'Mohammed');
-  Af('h-roles', (d.roles || ['Data Engineer','ETL Architect','Cloud Engineer']).join(','));
-  Af('h-desc', d.desc || '');
-  Af('h-s1n', d.s1n || '120+'); Af('h-s1l', d.s1l || 'Data Eng. Hours');
-  Af('h-s2n', d.s2n || '5+');   Af('h-s2l', d.s2l || 'Internships');
-  Af('h-s3n', d.s3n || '8+');   Af('h-s3l', d.s3l || 'Certificates');
-}
-function APsaveHome() {
-  var d = { fname:Ag('h-fname'), lname:Ag('h-lname'), roles:Ag('h-roles').split(',').map(function(s){return s.trim();}), desc:Ag('h-desc'), s1n:Ag('h-s1n'), s1l:Ag('h-s1l'), s2n:Ag('h-s2n'), s2l:Ag('h-s2l'), s3n:Ag('h-s3n'), s3l:Ag('h-s3l') };
-  Aset('home', d);
-  var fn=document.querySelector('.hn'); if(fn) fn.textContent=d.fname;
-  var ln=document.querySelector('.hng'); if(ln) ln.textContent=d.lname;
-  var hd=document.querySelector('.hdesc'); if(hd&&d.desc) hd.textContent=d.desc;
-  var nums=document.querySelectorAll('.stat-num'), lbls=document.querySelectorAll('.stat-lbl');
-  if(nums[0]) nums[0].textContent=d.s1n; if(lbls[0]) lbls[0].textContent=d.s1l;
-  if(nums[1]) nums[1].textContent=d.s2n; if(lbls[1]) lbls[1].textContent=d.s2l;
-  if(nums[2]) nums[2].textContent=d.s3n; if(lbls[2]) lbls[2].textContent=d.s3l;
-  alert('Home saved!');
-}
-function APloadAbout() {
-  var d = Aget('about') || {}, ps = document.querySelectorAll('.about-text p');
-  Af('ab-p1', d.p1 || (ps[0] ? ps[0].innerText : ''));
-  Af('ab-p2', d.p2 || (ps[1] ? ps[1].innerText : ''));
-  Af('ab-p3', d.p3 || (ps[2] ? ps[2].innerText : ''));
-}
-function APsaveAbout() {
-  var d = { p1:Ag('ab-p1'), p2:Ag('ab-p2'), p3:Ag('ab-p3') };
-  Aset('about', d);
-  var ps = document.querySelectorAll('.about-text p');
-  if(ps[0]) ps[0].innerHTML=d.p1; if(ps[1]) ps[1].innerHTML=d.p2; if(ps[2]) ps[2].innerHTML=d.p3;
-  alert('About saved!');
-}
-function APloadSkills() {
-  var skills = Aget('skills') || ['SQL','Python','Power BI','Tableau','Excel','Pandas','NumPy','Apache Spark','Apache Kafka','Apache Airflow','PySpark','Azure Synapse','PostgreSQL','MongoDB','Docker','Git'];
-  var list = document.getElementById('skills-list');
-  if (!list) return;
-  list.innerHTML = '';
-  skills.forEach(function(s) {
-    var row = document.createElement('div');
-    row.style.cssText = 'display:flex;gap:8px;margin-bottom:6px;';
-    var inp = document.createElement('input');
-    inp.value = s;
-    inp.style.cssText = 'flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:7px 12px;font-family:Inter,sans-serif;font-size:13px;';
-    var del = document.createElement('button');
-    del.textContent = 'x';
-    del.style.cssText = 'background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#f87171;width:30px;height:30px;border-radius:6px;cursor:pointer;flex-shrink:0;font-size:14px;';
-    del.onclick = function() { row.remove(); };
-    row.appendChild(inp); row.appendChild(del);
-    list.appendChild(row);
-  });
-}
-function APaddSkill() {
-  var list = document.getElementById('skills-list');
-  var row = document.createElement('div');
-  row.style.cssText = 'display:flex;gap:8px;margin-bottom:6px;';
-  var inp = document.createElement('input');
-  inp.placeholder = 'Skill name';
-  inp.style.cssText = 'flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:7px 12px;font-family:Inter,sans-serif;font-size:13px;';
-  var del = document.createElement('button');
-  del.textContent = 'x';
-  del.style.cssText = 'background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#f87171;width:30px;height:30px;border-radius:6px;cursor:pointer;flex-shrink:0;font-size:14px;';
-  del.onclick = function() { row.remove(); };
-  row.appendChild(inp); row.appendChild(del);
-  list.appendChild(row);
-}
-function APsaveSkills() {
-  var skills = Array.from(document.querySelectorAll('#skills-list input')).map(function(i){return i.value.trim();}).filter(Boolean);
-  Aset('skills', skills);
-  var wrap = document.getElementById('skgridNew');
-  if (wrap) {
-    var icons = ['🗄️','🐍','📊','📈','📋','🐼','🔢','📉','🧠','🔥','🌊','🌀','⚡','☁️','🏔️','🐘','🍃','🖥️','🐋','🐙','🌐','⭐','📓','🔎','📐'];
-    var pcts  = [95,90,88,85,82,80,78,76,75,74,72,70,90,86,84,83,80,78,76,72,70,88,86,84,82];
-    var rows = skills.map(function(s,i){
-      var pct = pcts[i%pcts.length];
-      return '<div class="skbar-card" data-pct="'+pct+'"><div class="skbar-top"><div class="skbar-name"><span class="ico">'+icons[i%icons.length]+'</span>'+s+'</div><div class="skbar-pct">'+pct+'%</div></div><div class="skbar-track"><div class="skbar-fill"></div></div></div>';
-    }).join('');
-    wrap.innerHTML = '<div class="skcat"><div class="skcat-h"><div class="skcat-ic" style="background:rgba(168,85,247,.15);color:#a855f7;">🛠️</div><div><div class="skcat-tt">My Skills</div><div class="skcat-ct">Updated from Admin Panel</div></div></div><div class="skrow-grid">'+rows+'</div></div>';
-    document.querySelectorAll('#skgridNew .skbar-card').forEach(function(card){
-      card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();card.style.setProperty('--mx',(e.clientX-r.left)+'px');card.style.setProperty('--my',(e.clientY-r.top)+'px');});
-    });
-    document.querySelectorAll('#skgridNew .skcat').forEach(function(el){ if(typeof skillObs!=='undefined') skillObs.observe(el); });
-  }
-  alert('Skills saved!');
-}
-function APloadExp() {
-  var items = Aget('experience') || [{date:'NOV 2024 - PRESENT',title:'Data Engineering Intern',company:'DEPI - Ministry of MCIT',pts:['Building ETL pipelines','Azure Synapse & Data Lake']},{date:'NOV 2024 - AUG 2025',title:'Data Analytics Specialist',company:'DEPI - Ministry of MCIT',pts:['Google Data Analytics Certificate','Power BI, Python, Tableau']}];
-  var list = document.getElementById('exp-list');
-  if (!list) return;
-  list.innerHTML = '';
-  items.forEach(function(e) { APaddExpRow(e); });
-}
-function APaddExpRow(e) {
-  var list = document.getElementById('exp-list');
-  var div = document.createElement('div');
-  div.setAttribute('data-exp', '');
-  div.style.cssText = 'background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.2);border-radius:10px;padding:12px;margin-bottom:10px;';
-  var g = function(cls){ return div.querySelector(cls); };
-  div.innerHTML = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;"><input class="ex-date" placeholder="Date range" style="background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:7px 10px;font-family:Inter,sans-serif;font-size:13px;"><input class="ex-title" placeholder="Job Title" style="background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:7px 10px;font-family:Inter,sans-serif;font-size:13px;"></div><input class="ex-co" placeholder="Company" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:7px 10px;font-family:Inter,sans-serif;font-size:13px;box-sizing:border-box;margin-bottom:8px;"><textarea class="ex-pts" rows="3" placeholder="Bullet points (one per line)" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(124,58,237,.3);border-radius:8px;color:#fff;padding:7px 10px;font-family:Inter,sans-serif;font-size:13px;box-sizing:border-box;resize:vertical;"></textarea><button style="background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#f87171;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:12px;font-family:Inter,sans-serif;margin-top:6px;">Remove</button>';
-  if (e) { div.querySelector('.ex-date').value=e.date||''; div.querySelector('.ex-title').value=e.title||''; div.querySelector('.ex-co').value=e.company||''; div.querySelector('.ex-pts').value=(e.pts||[]).join('\n'); }
-  div.querySelector('button').onclick = function() { div.remove(); };
-  list.appendChild(div);
-}
-function APaddExp() { APaddExpRow({}); }
-function APsaveExp() {
-  var items = Array.from(document.querySelectorAll('#exp-list [data-exp]')).map(function(d){ return {date:d.querySelector('.ex-date').value,title:d.querySelector('.ex-title').value,company:d.querySelector('.ex-co').value,pts:d.querySelector('.ex-pts').value.split('\n').map(function(s){return s.trim();}).filter(Boolean)}; }).filter(function(e){return e.title;});
-  Aset('experience', items);
-  var grid = document.querySelector('.extl');
-  if (grid) { grid.innerHTML = items.map(function(e){ return '<div class="exc rv"><div class="exnode"><div class="exic">💼</div></div><div class="excard"><div class="exhead"><span class="exdt">'+e.date+'</span></div><div class="extt">'+e.title+'</div><div class="exco">'+e.company+'</div><ul class="expts">'+e.pts.map(function(p){return '<li>'+p+'</li>';}).join('')+'</ul></div></div>'; }).join(''); document.querySelectorAll('.extl .rv').forEach(function(el){obs.observe(el);}); }
-  alert('Experience saved!');
-}
-function APloadEdu() {
-  var d = Aget('education') || {};
-  Af('edu-deg', d.deg || 'Bachelor of Commerce - MIS');
-  Af('edu-uni', d.uni || 'Capital University (English Section)');
-  Af('edu-courses', (d.courses || ['Data Engineering Track - DEPI (120hrs)','Data Analytics Track - DEPI (110hrs)','Google Data Analytics - Coursera']).join('\n'));
-}
-function APsaveEdu() {
-  var d = { deg:Ag('edu-deg'), uni:Ag('edu-uni'), courses:Ag('edu-courses').split('\n').map(function(s){return s.trim();}).filter(Boolean) };
-  Aset('education', d);
-  var deg=document.querySelector('.eddg'); if(deg) deg.textContent=d.deg;
-  var uni=document.querySelector('.edsc'); if(uni) uni.textContent=d.uni;
-  var cl=document.querySelector('.clist'); if(cl) cl.innerHTML=d.courses.map(function(c){return '<li>'+c+'</li>';}).join('');
-  alert('Education saved!');
-}
-function APloadContact() {
-  var d = Aget('contact') || {};
-  Af('ct-phone', d.phone||'01062405456'); Af('ct-email', d.email||'manonmohamed900@gmail.com');
-  Af('ct-li', d.li||'https://www.linkedin.com/in/menna-mohammed0');
-  Af('ct-gh', d.gh||'https://github.com/Menna-Rady');
-}
-function APsaveContact() {
-  var d = { phone:Ag('ct-phone'), email:Ag('ct-email'), li:Ag('ct-li'), gh:Ag('ct-gh') };
-  Aset('contact', d);
-  document.querySelectorAll('.cit').forEach(function(it){ var lbl=it.querySelector('.clbl'),val=it.querySelector('.cval'); if(!lbl||!val) return; var t=lbl.textContent.trim(); if(t==='WHATSAPP'){val.textContent=d.phone;it.href='https://wa.me/20'+d.phone.replace(/^0/,'');} if(t==='EMAIL'){val.textContent=d.email;it.href='mailto:'+d.email;} if(t==='LINKEDIN'){val.textContent=d.li.replace('https://www.linkedin.com/in/','');it.href=d.li;} if(t==='GITHUB'){val.textContent=d.gh.replace('https://github.com/','');it.href=d.gh;} });
-  alert('Contact saved!');
-}
-function APloadProj() {
-  var pl = document.getElementById('ap-proj-list2'); if(!pl) return;
-  var projs = getU();
-  if (!projs.length) { pl.innerHTML='<p style="color:#606090;">No projects yet.</p>'; return; }
-  pl.innerHTML = '';
-  projs.forEach(function(p,i){ var div=document.createElement('div'); div.style.cssText='background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.2);border-radius:10px;padding:10px 14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;'; div.innerHTML='<div><b style="color:#fff;">'+p.nm+'</b><br><small style="color:#606090;">'+(p.tools||[]).join(', ')+'</small></div>'; var btn=document.createElement('button'); btn.textContent='Delete'; btn.style.cssText='background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#f87171;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:12px;font-family:Inter,sans-serif;'; btn.onclick=function(){delP(i);APloadProj();}; div.appendChild(btn); pl.appendChild(div); });
-}
-function APloadCerts() {
-  var cl = document.getElementById('ap-cert-list2'); if(!cl) return;
-  var certs = getUC();
-  if (!certs.length) { cl.innerHTML='<p style="color:#606090;">No certificates yet.</p>'; return; }
-  cl.innerHTML = '';
-  certs.forEach(function(c,i){ var div=document.createElement('div'); div.style.cssText='background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.2);border-radius:10px;padding:10px 14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;'; div.innerHTML='<div><b style="color:#fff;">'+c.nm+'</b><br><small style="color:#606090;">'+c.iss+'</small></div>'; var btn=document.createElement('button'); btn.textContent='Delete'; btn.style.cssText='background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#f87171;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:12px;font-family:Inter,sans-serif;'; btn.onclick=function(){delC(i);APloadCerts();}; div.appendChild(btn); cl.appendChild(div); });
-}
-
-// Wire up all buttons after page loads
-window.addEventListener('load', function() {
-  // Tab buttons
-  document.getElementById('APT-home').onclick    = function() { APshow('home'); };
-  document.getElementById('APT-about').onclick   = function() { APshow('about'); };
-  document.getElementById('APT-skills').onclick  = function() { APshow('skills'); };
-  document.getElementById('APT-exp').onclick      = function() { APshow('exp'); };
-  document.getElementById('APT-edu').onclick      = function() { APshow('edu'); };
-  document.getElementById('APT-proj').onclick     = function() { APshow('proj'); };
-  document.getElementById('APT-certs').onclick    = function() { APshow('certs'); };
-  document.getElementById('APT-contact').onclick  = function() { APshow('contact'); };
-  // Close button
-  document.getElementById('AP-close').onclick = function() { document.getElementById('AP').style.display='none'; };
-  // Save buttons
-  document.getElementById('btn-saveHome').onclick    = APsaveHome;
-  document.getElementById('btn-saveAbout').onclick   = APsaveAbout;
-  document.getElementById('btn-addSkill').onclick    = APaddSkill;
-  document.getElementById('btn-saveSkills').onclick  = APsaveSkills;
-  document.getElementById('btn-addExp').onclick      = APaddExp;
-  document.getElementById('btn-saveExp').onclick     = APsaveExp;
-  document.getElementById('btn-saveEdu').onclick     = APsaveEdu;
-  document.getElementById('btn-saveContact').onclick = APsaveContact;
-  document.getElementById('btn-addProj').onclick     = function() { document.getElementById('AP').style.display='none'; openPModal(); };
-  document.getElementById('btn-addCert').onclick     = function() { document.getElementById('AP').style.display='none'; openCModal(); };
-  // Admin float btn
-  var fb = document.getElementById('adminFloatBtn');
-  if (fb) fb.onclick = function() { showAdminLogin('adminPanel'); };
-  // Nav ⚙ button
-  var nb = document.getElementById('apNavBtn');
-  if (nb) nb.onclick = function() { showAdminLogin('adminPanel'); };
-  // Apply saved data
-  var h=Aget('home'); if(h){var fn=document.querySelector('.hn');if(fn)fn.textContent=h.fname||fn.textContent;var ln=document.querySelector('.hng');if(ln)ln.textContent=h.lname||ln.textContent;var hd=document.querySelector('.hdesc');if(hd&&h.desc)hd.textContent=h.desc;var nums=document.querySelectorAll('.stat-num'),lbls=document.querySelectorAll('.stat-lbl');if(nums[0]&&h.s1n)nums[0].textContent=h.s1n;if(lbls[0]&&h.s1l)lbls[0].textContent=h.s1l;if(nums[1]&&h.s2n)nums[1].textContent=h.s2n;if(lbls[1]&&h.s2l)lbls[1].textContent=h.s2l;if(nums[2]&&h.s3n)nums[2].textContent=h.s3n;if(lbls[2]&&h.s3l)lbls[2].textContent=h.s3l;}
-  var ab=Aget('about');if(ab){var ps=document.querySelectorAll('.about-text p');if(ps[0]&&ab.p1)ps[0].innerHTML=ab.p1;if(ps[1]&&ab.p2)ps[1].innerHTML=ab.p2;if(ps[2]&&ab.p3)ps[2].innerHTML=ab.p3;}
-  var ed=Aget('education');if(ed){var deg=document.querySelector('.eddg');if(deg&&ed.deg)deg.textContent=ed.deg;var uni=document.querySelector('.edsc');if(uni&&ed.uni)uni.textContent=ed.uni;var cl=document.querySelector('.clist');if(cl&&ed.courses)cl.innerHTML=ed.courses.map(function(c){return '<li>'+c+'</li>';}).join('');}
-  var ct=Aget('contact');if(ct){document.querySelectorAll('.cit').forEach(function(it){var lbl=it.querySelector('.clbl'),val=it.querySelector('.cval');if(!lbl||!val)return;var t=lbl.textContent.trim();if(t==='WHATSAPP'&&ct.phone){val.textContent=ct.phone;it.href='https://wa.me/20'+ct.phone.replace(/^0/,'');}if(t==='EMAIL'&&ct.email){val.textContent=ct.email;it.href='mailto:'+ct.email;}if(t==='LINKEDIN'&&ct.li){val.textContent=ct.li.replace('https://www.linkedin.com/in/','');it.href=ct.li;}if(t==='GITHUB'&&ct.gh){val.textContent=ct.gh.replace('https://github.com/','');it.href=ct.gh;}});}
-  // Logo secret trigger
-  var logoClicks=0, logoTimer=null;
-  var logoEl = document.querySelector('.logo');
-  if(logoEl){ logoEl.onclick = function(){ logoClicks++; clearTimeout(logoTimer); logoTimer=setTimeout(function(){logoClicks=0;},2000); if(logoClicks>=5){logoClicks=0;showAdminLogin('adminPanel');} }; }
-});
-</script>
 </body>
 </html>
