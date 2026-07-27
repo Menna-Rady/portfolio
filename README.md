@@ -19,5 +19,11 @@ My personal portfolio website showcasing my journey as a **Data Engineering & MI
 
 Data Engineering & MIS student at Capital University, Cairo — passionate about data pipelines, BI, and building clean, functional digital experiences.
 
+## 📫 Let's Connect
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/menna-mohammed0)
+- 🐙 [GitHub](https://github.com/Menna-Rady)
+- 📧 manonmohamed900@gmail.com
+
 ---
 ⭐ Feel free to explore and reach out if you'd like to connect!
